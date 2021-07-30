@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Sweepers War">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://sweepers50.github.io//images/main.jpeg">
+    <meta property="twitter:image" content="https://sweepers50.github.io//images/main.jpeg" />
+    
+
+    
+    <meta name="title" content="An Example Post" />
+    <meta property="og:title" content="An Example Post" />
+    <meta property="twitter:title" content="An Example Post" />
+    
+
+    
+    <meta name="description" content="">
+    <meta property="og:description" content="" />
+    <meta property="twitter:description" content="" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Rich, Youngkin, Raspberry, Pi, Docker, Kubernetes, Go, Golang, Microservice">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>An Example Post-Rich Youngkin Blog</title>
+
+    <link rel="canonical" href="/post/testpage/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Sweepers War</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/tech">tech</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+                        <li><a href="/top/blog/">Blog</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/images/main.jpeg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/tag1" title="tag1">
+                            tag1
+                        </a>
+                        
+                        <a class="tag" href="/tags/tag2" title="tag2">
+                            tag2
+                        </a>
+                        
+                    </div>
+                    <h1>An Example Post</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                 &#34;&#34;
+                         
+                        on 
+                        Monday, June 4, 2018
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#dhcp-operation">DHCP Operation</a></li>
+    <li><a href="#dhcp-message-format">DHCP Message Format</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#dns-lookup-process">DNS Lookup Process</a></li>
+    <li><a href="#dns-message-format">DNS Message Format</a></li>
+    <li><a href="#the-whois-protocol">The WHOIS Protocol</a></li>
+  </ul>
+</nav>
+                
+                <pre><code>title:       &quot;DHCP&quot;
+subtitle:    &quot;&quot;
+description: &quot;&quot;
+date:        2018-06-04
+author:      &quot;&quot;
+image:       &quot;&quot;
+tags:        [&quot;tag1&quot;, &quot;tag2&quot;]
+categories:  [&quot;Tech&quot; ]
+</code></pre><h1 id="dhcp">DHCP</h1>
+<ul>
+<li>DHCP : automates the assignment of IPv4 addresses, subnet masks, gateways, and other IPv4 networking parameters.</li>
+<li>DHCP can allocate IP addresses for a configurable period of time, called a <strong>lease period</strong>.</li>
+<li><strong>lease period</strong> : is an important DHCP setting, When the lease period expires or the DHCP server gets a DHCPRELEASE message the address is returned to the DHCP pool for reuse.</li>
+<li>DHCP for IPv6 (DHCPv6) provides similar services for IPv6 clients. <strong>One important difference</strong> is that DHCPv6 does not provide a default gateway address.</li>
+</ul>
+<h2 id="dhcp-operation">DHCP Operation</h2>
+<p><img src="D:\github\SOC-analysis\Network_services\Mics\DHCP_operation.PNG" style="zoom:50%;" /></p>
+<ol>
+<li>the client broadcasts a DHCP discover (DHCPDISCOVER) message to identify any available DHCP servers on the network.</li>
+<li>A DHCP server replies with a DHCP offer (DHCPOFFER) message. The offer message contains:
+<ol>
+<li>the IPv4 address and subnet mask to be assigned</li>
+<li>the IPv4 address of the DNS server</li>
+<li>the IPv4 address of the default gateway.</li>
+<li>The lease offer also includes the duration of the lease.</li>
+</ol>
+</li>
+<li>The client may receive multiple DHCPOFFER messages if there is more than one DHCP server on the local network. Therefore, it must choose between them, and sends a DHCP request (DHCPREQUEST) message that identifies the explicit server and lease offer that the client is accepting.</li>
+<li>If the IPv4 address requested by the client, or offered by the server, is still available, the server returns a DHCP acknowledgment (DHCPACK)</li>
+<li>If the offer is no longer valid, then the selected server responds with a DHCP negative acknowledgment (DHCPNAK) message.</li>
+<li>If a DHCPNAK message is returned, then the selection process must begin again with a new DHCPDISCOVER message being transmitted.</li>
+</ol>
+<ul>
+<li>
+<p>The DHCP server ensures that all IP addresses are unique</p>
+</li>
+<li>
+<p>DHCPv6 has a set of messages that is similar to those for DHCPv4. The DHCPv6 messages are SOLICIT, ADVERTISE, INFORMATION REQUEST, and REPLY.</p>
+</li>
+</ul>
+<h2 id="dhcp-message-format">DHCP Message Format</h2>
+<ul>
+<li>DHCPv4 messages are encapsulated within the UDP transport protocol.</li>
+<li>DHCPv4 messages that are sent from the client use UDP source port 68 and destination port 67.</li>
+</ul>
+<p><img src="D:\github\SOC-analysis\Network_services\Mics\DHCP_format.PNG" style="zoom:80%;" /></p>
+<h1 id="dns">DNS</h1>
+<ul>
+<li>The DNS consists of a hierarchy:
+<ol>
+<li>top-level domains (gTLD) which consist of .com, .net, .org, .gov, .edu, and numerous country-level domains, such as .br (Brazil), .es (Spain), .uk (United Kingdom), etc.
+<ul>
+<li>.com - a business or industry</li>
+<li>.org - a non-profit organization</li>
+<li>.au - Australia</li>
+<li>.co - Colombia</li>
+</ul>
+</li>
+<li>Domains</li>
+<li>Subdomains</li>
+<li>A host in a subdomain.</li>
+</ol>
+</li>
+<li>Each element of a domain specification is sometimes called a label. The labels move from the top of the hierarchy downward from right to left. A dot (“.“) at the end of a domain name represents the root server at the top of the hierarchy.</li>
+</ul>
+<p><img src="D:\github\SOC-analysis\Network_services\Mics\DNS_Hierarchy.PNG" style="zoom:60%;" /></p>
+<h2 id="dns-lookup-process">DNS Lookup Process</h2>
+<ul>
+<li><strong>Resolver</strong> - A DNS client that sends DNS messages to obtain information about the requested domain name space.</li>
+<li><strong>Recursion</strong> - The action taken when a DNS server is asked to query on behalf of a DNS resolver.</li>
+<li><strong>Authoritative Server</strong> - A DNS server that responds to query messages with information stored in Resource Records (RRs) for a domain name space stored on the server.</li>
+<li><strong>Recursive Resolver</strong> - A DNS server that recursively queries for the information asked in the DNS query.</li>
+<li><strong>FQDN</strong> - A Fully Qualified Domain Name is the absolute name of a device within the distributed DNS database.</li>
+<li><strong>RR</strong> - A Resource Record is a format used in DNS messages that is composed of the following fields: NAME, TYPE, CLASS, TTL, RDLENGTH, and RDATA.
+<ul>
+<li>Types of record
+<ul>
+<li><strong>A</strong> - An end device IPv4 address</li>
+<li><strong>NS</strong> - An authoritative name server</li>
+<li><strong>AAAA</strong> - An end device IPv6 address (pronounced quad-A)</li>
+<li><strong>MX</strong> - A mail exchange record</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Zone</strong> - A database that contains information about the domain name space stored on an authoritative server.</li>
+</ul>
+<h2 id="dns-message-format">DNS Message Format</h2>
+<ul>
+<li>DNS uses UDP port 53 for DNS queries and responses.</li>
+<li><strong>ipconfig /displaydns</strong> command displays all of the cached DNS entries.</li>
+<li>DNS uses the same message format for
+<ul>
+<li>All types of client queries and server response</li>
+<li>Error messages</li>
+<li>The transfer of resource records between servers</li>
+</ul>
+</li>
+</ul>
+<p>
+  <img src="D:%5cgithub%5cSOC-analysis%5cNetwork_services%5cMics%5cdns_format.PNG" alt="">
+
+</p>
+<p>
+  <img src="D:%5cgithub%5cSOC-analysis%5cNetwork_services%5cMics%5cdns_format_tb.PNG" alt="">
+
+</p>
+<h2 id="the-whois-protocol">The WHOIS Protocol</h2>
+<ul>
+<li>WHOIS is a TCP-based protocol that is used to identify the owners of internet domains through the DNS system.
+<ul>
+<li>An internet-based WHOIS service is called <strong>ICANN Lookup</strong> can be used to obtain the registration record a URL.</li>
+</ul>
+</li>
+</ul>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/network_services/" data-toggle="tooltip" data-placement="top" title="DHCP">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Sweepers War" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:mohamed.abohelal20@yahoo.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/sweepers50">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/feed/?trk=homepage-basic_signin-form_submit">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Sweepers War 2021
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>

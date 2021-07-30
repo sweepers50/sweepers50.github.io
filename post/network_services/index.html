@@ -15,9 +15,9 @@
     
 
     
-    <meta name="title" content="Sweepers war" />
-    <meta property="og:title" content="Sweepers war" />
-    <meta property="twitter:title" content="Sweepers war" />
+    <meta name="title" content="DHCP" />
+    <meta property="og:title" content="DHCP" />
+    <meta property="twitter:title" content="DHCP" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="Rich, Youngkin, Raspberry, Pi, Docker, Kubernetes, Go, Golang, Microservice">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Categories-Rich Youngkin Blog</title>
+    <title>DHCP-Rich Youngkin Blog</title>
 
-    <link rel="canonical" href="/categories/">
+    <link rel="canonical" href="/post/network_services/">
 
     <link rel="stylesheet" href="/css/iDisqus.min.css"/>
 
@@ -146,14 +146,41 @@
 
 
 
-<header class="intro-header" style="background-image: url('/images/main.jpeg')">
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/images/main.jpeg')
+    }
+</style>
+<header class="intro-header">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>Sweepers War </h1>
-                    
-		    <span class="subheading">$ grep -rni &#34;The how&#39;s and why&#39;s&#34; .</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/tag1" title="tag1">
+                            tag1
+                        </a>
+                        
+                        <a class="tag" href="/tags/tag2" title="tag2">
+                            tag2
+                        </a>
+                        
+                    </div>
+                    <h1>DHCP</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                Sweepers War
+                         
+                        on 
+                        Monday, June 4, 2018
+                        
+                        
+                        
+                    </span>
                 </div>
             </div>
         </div>
@@ -166,13 +193,153 @@
 <article>
     <div class="container">
         <div class="row">
+
             
             <div class="
-                col-lg-8 col-lg-offset-2
+                col-lg-11 col-lg-offset-1
                 col-md-10 col-md-offset-1
                 post-container">
 
-         	
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#dhcp-operation">DHCP Operation</a></li>
+    <li><a href="#dhcp-message-format">DHCP Message Format</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#dns-lookup-process">DNS Lookup Process</a></li>
+    <li><a href="#dns-message-format">DNS Message Format</a></li>
+    <li><a href="#the-whois-protocol">The WHOIS Protocol</a></li>
+  </ul>
+</nav>
+                
+                <h1 id="dhcp">DHCP</h1>
+<ul>
+<li>DHCP : automates the assignment of IPv4 addresses, subnet masks, gateways, and other IPv4 networking parameters.</li>
+<li>DHCP can allocate IP addresses for a configurable period of time, called a <strong>lease period</strong>.</li>
+<li><strong>lease period</strong> : is an important DHCP setting, When the lease period expires or the DHCP server gets a DHCPRELEASE message the address is returned to the DHCP pool for reuse.</li>
+<li>DHCP for IPv6 (DHCPv6) provides similar services for IPv6 clients. <strong>One important difference</strong> is that DHCPv6 does not provide a default gateway address.</li>
+</ul>
+<h2 id="dhcp-operation">DHCP Operation</h2>
+<p><img src="D:\github\SOC-analysis\Network_services\Mics\DHCP_operation.PNG" style="zoom:50%;" /></p>
+<ol>
+<li>the client broadcasts a DHCP discover (DHCPDISCOVER) message to identify any available DHCP servers on the network.</li>
+<li>A DHCP server replies with a DHCP offer (DHCPOFFER) message. The offer message contains:
+<ol>
+<li>the IPv4 address and subnet mask to be assigned</li>
+<li>the IPv4 address of the DNS server</li>
+<li>the IPv4 address of the default gateway.</li>
+<li>The lease offer also includes the duration of the lease.</li>
+</ol>
+</li>
+<li>The client may receive multiple DHCPOFFER messages if there is more than one DHCP server on the local network. Therefore, it must choose between them, and sends a DHCP request (DHCPREQUEST) message that identifies the explicit server and lease offer that the client is accepting.</li>
+<li>If the IPv4 address requested by the client, or offered by the server, is still available, the server returns a DHCP acknowledgment (DHCPACK)</li>
+<li>If the offer is no longer valid, then the selected server responds with a DHCP negative acknowledgment (DHCPNAK) message.</li>
+<li>If a DHCPNAK message is returned, then the selection process must begin again with a new DHCPDISCOVER message being transmitted.</li>
+</ol>
+<ul>
+<li>
+<p>The DHCP server ensures that all IP addresses are unique</p>
+</li>
+<li>
+<p>DHCPv6 has a set of messages that is similar to those for DHCPv4. The DHCPv6 messages are SOLICIT, ADVERTISE, INFORMATION REQUEST, and REPLY.</p>
+</li>
+</ul>
+<h2 id="dhcp-message-format">DHCP Message Format</h2>
+<ul>
+<li>DHCPv4 messages are encapsulated within the UDP transport protocol.</li>
+<li>DHCPv4 messages that are sent from the client use UDP source port 68 and destination port 67.</li>
+</ul>
+<p><img src="D:\github\SOC-analysis\Network_services\Mics\DHCP_format.PNG" style="zoom:80%;" /></p>
+<h1 id="dns">DNS</h1>
+<ul>
+<li>The DNS consists of a hierarchy:
+<ol>
+<li>top-level domains (gTLD) which consist of .com, .net, .org, .gov, .edu, and numerous country-level domains, such as .br (Brazil), .es (Spain), .uk (United Kingdom), etc.</li>
+</ol>
+<ul>
+<li>.com - a business or industry</li>
+<li>.org - a non-profit organization</li>
+<li>.au - Australia</li>
+<li>.co - Colombia</li>
+</ul>
+<ol start="2">
+<li>Domains</li>
+<li>Subdomains</li>
+<li>A host in a subdomain.</li>
+</ol>
+</li>
+<li>Each element of a domain specification is sometimes called a label. The labels move from the top of the hierarchy downward from right to left. A dot (“.“) at the end of a domain name represents the root server at the top of the hierarchy.</li>
+</ul>
+<p><img src="D:\github\SOC-analysis\Network_services\Mics\DNS_Hierarchy.PNG" style="zoom:60%;" /></p>
+<h2 id="dns-lookup-process">DNS Lookup Process</h2>
+<ul>
+<li><strong>Resolver</strong> - A DNS client that sends DNS messages to obtain information about the requested domain name space.</li>
+<li><strong>Recursion</strong> - The action taken when a DNS server is asked to query on behalf of a DNS resolver.</li>
+<li><strong>Authoritative Server</strong> - A DNS server that responds to query messages with information stored in Resource Records (RRs) for a domain name space stored on the server.</li>
+<li><strong>Recursive Resolver</strong> - A DNS server that recursively queries for the information asked in the DNS query.</li>
+<li><strong>FQDN</strong> - A Fully Qualified Domain Name is the absolute name of a device within the distributed DNS database.</li>
+<li><strong>RR</strong> - A Resource Record is a format used in DNS messages that is composed of the following fields: NAME, TYPE, CLASS, TTL, RDLENGTH, and RDATA.
+<ul>
+<li>Types of record
+<ul>
+<li><strong>A</strong> - An end device IPv4 address</li>
+<li><strong>NS</strong> - An authoritative name server</li>
+<li><strong>AAAA</strong> - An end device IPv6 address (pronounced quad-A)</li>
+<li><strong>MX</strong> - A mail exchange record</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Zone</strong> - A database that contains information about the domain name space stored on an authoritative server.</li>
+</ul>
+<h2 id="dns-message-format">DNS Message Format</h2>
+<ul>
+<li>DNS uses UDP port 53 for DNS queries and responses.</li>
+<li><strong>ipconfig /displaydns</strong> command displays all of the cached DNS entries.</li>
+<li>DNS uses the same message format for
+<ul>
+<li>All types of client queries and server response</li>
+<li>Error messages</li>
+<li>The transfer of resource records between servers</li>
+</ul>
+</li>
+</ul>
+<p>
+  <img src="D:%5cgithub%5cSOC-analysis%5cNetwork_services%5cMics%5cdns_format.PNG" alt="">
+
+</p>
+<p>
+  <img src="D:%5cgithub%5cSOC-analysis%5cNetwork_services%5cMics%5cdns_format_tb.PNG" alt="">
+
+</p>
+<h2 id="the-whois-protocol">The WHOIS Protocol</h2>
+<ul>
+<li>WHOIS is a TCP-based protocol that is used to identify the owners of internet domains through the DNS system.
+<ul>
+<li>An internet-based WHOIS service is called <strong>ICANN Lookup</strong> can be used to obtain the registration record a URL.</li>
+</ul>
+</li>
+</ul>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/post/testpage/" data-toggle="tooltip" data-placement="top" title="An Example Post">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
                 
 <div id="disqus-comment"></div>
 
@@ -181,7 +348,7 @@
             </div>
             
             <div class="
-                col-lg-8 col-lg-offset-2
+                col-lg-11 col-lg-offset-1
                 col-md-10 col-md-offset-1
                 sidebar-container">
 
@@ -205,7 +372,7 @@
                 <ul class="list-inline text-center">
                    
                    <li>
-                       <a href='/categories/index.xml' rel="alternate" type="application/rss+xml" title="Sweepers War" >
+                       <a href='' rel="alternate" type="application/rss+xml" title="Sweepers War" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>

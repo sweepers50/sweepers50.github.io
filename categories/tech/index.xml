@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Sweepers War</title>
-    <link>https://sweepers50.github.io/</link>
-    <description>Recent content on Sweepers War</description>
+    <title>Tech on Sweepers War</title>
+    <link>https://sweepers50.github.io/categories/tech/</link>
+    <description>Recent content in Tech on Sweepers War</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 29 Jul 2021 18:04:49 +0200</lastBuildDate><atom:link href="https://sweepers50.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Mypost</title>
-      <link>https://sweepers50.github.io/posts/mypost/</link>
-      <pubDate>Thu, 29 Jul 2021 18:04:49 +0200</pubDate>
-      
-      <guid>https://sweepers50.github.io/posts/mypost/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Mon, 04 Jun 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://sweepers50.github.io/categories/tech/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>An Example Post</title>
       <link>https://sweepers50.github.io/post/testpage/</link>
